@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -34,7 +34,6 @@ jobs:
           import re
 
           src = Path("/tmp/original.html").read_text(encoding="utf-8")
-
           head = src.split("<body>", 1)[0]
           head = re.sub(r'<link rel="manifest"[^>]*>', '', head, flags=re.I)
 
@@ -48,8 +47,10 @@ jobs:
           Path("index.html").write_text(clean, encoding="utf-8")
           PY
 
-      - name: Configure Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
