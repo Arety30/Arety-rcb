@@ -42,11 +42,20 @@
 <div class="card"><span class="tag">LIMITATIONS</span><h3>Known limits</h3><p>Open-ended writing (stories, long essays, code) is still basic in 1.0. Knowledge reflects its last refresh and may miss very recent events. It can misread unusual phrasings. Check important answers before relying on them.</p></div>
 <div class="card"><span class="tag">SAFETY &amp; PRIVACY</span><h3>Your data</h3><p>Signed-in chats are saved to your account and can be deleted at any time. Chats started while signed out are removed after 14 days. Nothing is shared between accounts. Passwords are stored hashed. API keys can be revoked from your account page.</p></div>
 </div>
-<h3 style="margin-top:28px">Using the API</h3>
-<pre style="background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font:12.5px/1.6 'DM Mono',monospace">curl https://tests.arety.cloud/v1/chat/completions \
+<h3 style="margin-top:28px" id="api">Using the API and the MCP server</h3>
+<p>Programs call the REST API; AI assistants (ChatGPT, Claude, agents) call the MCP server. Full instructions with Python and JavaScript examples: <a href="https://tests.arety.cloud/developers">tests.arety.cloud/developers</a>. OpenAPI document: <a href="https://tests.arety.cloud/v1/openapi.json">/v1/openapi.json</a>.</p>
+<pre style="background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font:12.5px/1.6 'DM Mono',monospace"># no key needed to try it (20 requests a minute per address; context kept per session)
+curl https://tests.arety.cloud/v1/think -H "Content-Type: application/json" \
+  -d '{"prompt":"What is 123456789 * 987654321?","session":"demo"}'
+
+# OpenAI-compatible, with a personal key (your account's memory)
+curl https://tests.arety.cloud/v1/chat/completions \
   -H "Authorization: Bearer YOUR_KEY" -H "Content-Type: application/json" \
-  -d '{"model":"arety-rcb-1.0","messages":[{"role":"user","content":"What is the capital of Mongolia?"}]}'</pre>
-<p>Create a key from <b>Account → API keys</b> in Arety Chat. Requests made with your key share your account's memory.</p>
+  -d '{"model":"arety-rcb-1.2","messages":[{"role":"user","content":"What is the capital of Mongolia?"}]}'
+
+# MCP server for AI assistants (streamable HTTP, no auth): tools ask_arety, reset_session, search, fetch
+https://tests.arety.cloud/mcp</pre>
+<p>Create a key from <b>Account → API keys</b> in Arety Chat. Requests made with your key share your account's memory; keyless requests are scoped to your address and session. The API returns only the model name and the answer.</p>
 </section>
 <section class="section" id="compare"><div class="eyebrow">HOW IT DIFFERS</div><h2>Traditional AI, LLMs and Arety RCB-1.0</h2>
 <p>There are three broad ways to build an AI system. Here is how they compare.</p>
