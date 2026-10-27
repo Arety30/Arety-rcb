@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://documentation.arety.cloud/sitemap.xml
