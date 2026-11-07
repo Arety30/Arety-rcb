@@ -1,26 +1,33 @@
-# Arety RCB 🧠
+# Arety RCB — Public Documentation
 
-**A research project exploring a modular architecture for machine cognition.**
+This repository hosts the public architecture documentation for **Real Cognition Brain (RCB)** and the versioned technical documentation for the **Arety RCB 1.2** served configuration.
 
-Arety RCB stands for **Real Cognition Brain**. The project explores how specialized components—such as language, processing, comparison, context, memory, and information—could cooperate as a system instead of relying on one all-purpose component.
+- Architecture documentation: https://documentation.arety.cloud
+- **RCB 1.2 technical site:** https://documentation.arety.cloud/rcb-1.2/
+- Public service: https://tests.arety.cloud
+- Developer guide: https://tests.arety.cloud/developers
 
-🌐 **Project documentation:** https://documentation.arety.cloud  
-🧪 **Related implementation:** [RVTCB](https://github.com/Arety30/rvtcb)
+## Documentation versions
 
-## What you'll find here
+- The root site describes the RCB architecture and earlier model history.
+- `/rcb-1.2/` documents the RCB 1.2 configuration, its nine-node layout, thought lifecycle, intent routing, comparison modes, memory and knowledge stores, public interfaces, measured evidence, limitations and responsible-use notes.
 
-- Documentation and architecture notes for the Arety RCB concept
-- Explanations of real and virtual cognitive-node ideas
-- Design discussions that distinguish implemented work from proposed directions
+## Terminology
 
-## Research status
+- **RCB** is the architecture; it has no version number.
+- **RVTCB** is the software package implementing RCB with virtual nodes (0.1.x; protocol `rvtcb/0.1`).
+- **RPTCB** refers to an implementation using physical nodes.
+- **Arety RCB 1.2** is a served configuration identified by `arety-rcb-1.2`.
 
-This is an evolving research prototype and architecture project. The concepts are not claims of artificial general intelligence, consciousness, or superiority over existing systems. Check the implementation repository for the features currently backed by code.
+## Evidence and scope
 
-## Explore
+The RCB 1.2 documentation follows the technical whitepaper v3 dated 2026-10-26. Benchmarks are small, author-designed evaluations on stated tasks and hardware; they are not general intelligence evaluations. Known defects and unimplemented design directions are explicitly labelled.
 
-- [RVTCB source code](https://github.com/Arety30/rvtcb)
-- [GPU development environment](https://github.com/Arety30/gpu-box)
+The RCB 1.2 page is a static HTML site and requires no build step or JavaScript framework.
+
+## Hosting
+
+The repository's existing GitHub Pages custom domain is `documentation.arety.cloud`. The RCB 1.2 site is published as a versioned subdirectory at `/rcb-1.2/`, leaving the existing root documentation intact.
 
 ---
-Made by Arety. Built through experiments, code, and iteration.
+Made by Arety.
